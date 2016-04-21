@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="SpringMvcNoSql:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="SpringMvcNoSql.war">
+      <element id="artifact" artifact-name="SpringMvcNoSql:war exploded" />
+    </root>
+  </artifact>
+</component>
