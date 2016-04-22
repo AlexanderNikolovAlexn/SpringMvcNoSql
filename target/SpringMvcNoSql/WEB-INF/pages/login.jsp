@@ -3,7 +3,7 @@
 		<title>Login</title>
 	</head>
 	<body>
-		<form name="login" action="/uni/login" method="POST">
+		<form name="login" action="${loginUrl}" method="POST">
 			<table>
 				<tbody>
 					<tr>

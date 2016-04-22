@@ -1,5 +1,6 @@
 package com.samodeika.spring;
 
+import com.samodeika.spring.constants.UrlConstants;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,7 +11,7 @@ import java.util.Date;
 import java.util.Locale;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping(UrlConstants.C_HOME)
 public class HelloController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String printWelcome(ModelMap model) {
