@@ -1,18 +1,20 @@
 package com.samodeika.spring.services;
 
 import com.samodeika.spring.entities.Student;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-@Component
+@Service
 public class StudentServiceImpl implements CrudOperations<Student> {
 
     private List<Student> stundentList;
     private String[] specialities = {"Mathematics", "Physics", "Informatics", "Chemistry"};
 
     public StudentServiceImpl() {
+        stundentList = new ArrayList<>();
         Random rand = new Random();
         for (int i = 0; i < 10; i++) {
             Student student = new Student(i, "FirstName" + i, "LastName" + i, "email" + i + "@abv.bg", specialities[rand.nextInt(specialities.length)]);
