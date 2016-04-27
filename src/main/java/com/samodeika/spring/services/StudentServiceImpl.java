@@ -28,8 +28,15 @@ public class StudentServiceImpl implements CrudOperations<Student> {
     }
 
     @Override
-    public Student getById(Long id) {
-        return null;
+    public Student getById(long id) {
+        Student student = new Student();
+        for (Student st : stundentList) {
+            if(st.getFacultyNum() == id) {
+                student = st;
+                return student;
+            }
+        }
+        return student;
     }
 
     @Override

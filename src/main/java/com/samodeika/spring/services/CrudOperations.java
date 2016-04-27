@@ -5,7 +5,7 @@ import java.util.List;
 public interface CrudOperations<T> {
 
     List<T> getAll();
-    T getById(Long id);
+    T getById(long id);
     void save(T entity);
 
 }

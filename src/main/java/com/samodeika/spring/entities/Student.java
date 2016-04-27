@@ -8,6 +8,9 @@ public class Student {
     private String email;
     private String speciality;
 
+    public Student() {
+    }
+
     public Student(long facultyNum, String firstName, String lastName, String email, String speciality) {
         this.facultyNum = facultyNum;
         this.firstName = firstName;
