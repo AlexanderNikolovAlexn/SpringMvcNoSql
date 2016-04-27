@@ -41,6 +41,23 @@ public class StudentServiceImpl implements CrudOperations<Student> {
 
     @Override
     public void save(Student entity) {
+        stundentList.add(entity);
+    }
 
+    @Override
+    public boolean delete(Student entity) {
+
+        return stundentList.remove(entity);
+    }
+
+    @Override
+    public boolean delete(long id) {
+        Student student = new Student();
+        for (Student st : stundentList) {
+            if(st.getFacultyNum() == id) {
+                student = st;
+            }
+        }
+        return delete(student);
     }
 }
