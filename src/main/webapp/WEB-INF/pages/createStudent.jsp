@@ -15,19 +15,21 @@
         $('#studentForm').submit(function() {
           alert("submitting");
           var form  = $(this);
-          var url = form.atr('action');
+          var urlForm = form.atr('action');
+          alert("url is: " + urlForm);
           var formData = JSON.stringify(form.serializeArray());
+          alert(formData);
           $.ajax({
             headers: {
               'Accept': 'application/json',
               'Content-Type': 'application/json'
             },
-            url: url,
+            url: urlForm,
             type: 'POST',
             contentType : 'application/json',
             mimeType: 'application/json',
             dataType: 'json',
-            data: "{\"name\":\"hmkcode\",\"id\":2}",//formData,
+            data: formData,
             success : function () {
               alert('success');
             },
