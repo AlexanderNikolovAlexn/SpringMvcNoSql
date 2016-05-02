@@ -10,64 +10,63 @@
 <head>
     <title>Create Student</title>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-  <script type="text/javascript">
-      $(function() {
-        $('#studentForm').submit(function() {
-          alert("submitting");
-          var form  = $(this);
-          var urlForm = form.atr('action');
-          alert("url is: " + urlForm);
-          var formData = JSON.stringify(form.serializeArray());
-          alert(formData);
-          $.ajax({
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json'
-            },
-            url: urlForm,
-            type: 'POST',
-            contentType : 'application/json',
-            mimeType: 'application/json',
-            dataType: 'json',
-            data: formData,
-            success : function () {
-              alert('success');
-            },
-            error : function () {
-              alert('error');
-            },
-          });
-          alert("after Ajax");
-          event.preventDefault();
-        });
-      });
-  </script>
 </head>
 <body>
 <form id="studentForm" action="${urlRestStudent}" method="POST">
   <table>
     <tr>
       <td>Faculty Number</td>
-      <td><input type="text" id="facultyNum"/></td>
+      <td><input type="text" name="facultyNum"/></td>
     </tr>
     <tr>
       <td>First Name</td>
-      <td><input type="text" id="firstName"/></td>
+      <td><input type="text" name="firstName"/></td>
     </tr>
     <tr>
       <td>Last Name</td>
-      <td><input type="text" id="lastName"/></td>
+      <td><input type="text" name="lastName"/></td>
     </tr>
     <tr>
       <td>Email</td>
-      <td><input type="text" id="email"/></td>
+      <td><input type="text" name="email"/></td>
     </tr>
     <tr>
       <td>Speciality</td>
-      <td><input type="text" id="speciality"/></td>
+      <td><input type="text" name="speciality"/></td>
     </tr>
   </table>
   <input type="submit" value="Submit"/>
 </form>
+
+<script type="text/javascript">
+  $(function($) {
+    $('#studentForm').submit(function() {
+      event.preventDefault();
+      alert("facultyNum:" + $('input[name=facultyNum]').val());
+      var student = {
+        "facultyNum" : $('input[name=facultyNum]').val(),
+        "firstName" : $('input[name=firstName]').val(),
+        "lastName" : $('input[name=lastName]').val(),
+        "email" : $('input[name=email]').val(),
+        "speciality" : $('input[name=speciality]').val(),
+      };
+      alert("form data is: " + JSON.stringify(student));
+      $.ajax({
+        url: $(this).attr("action"),
+        type: 'POST',
+        contentType : 'application/json',
+        dataType: 'json',
+        data: JSON.stringify(student),
+        success : function () {
+          alert('success');
+        },
+        error : function () {
+          alert('error');
+        },
+      });
+    });
+  });
+</script>
+
 </body>
 </html>

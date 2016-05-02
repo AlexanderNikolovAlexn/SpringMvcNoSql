@@ -58,4 +58,15 @@ public class Student {
     public void setSpeciality(String speciality) {
         this.speciality = speciality;
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "facultyNum=" + facultyNum +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", speciality='" + speciality + '\'' +
+                '}';
+    }
 }
