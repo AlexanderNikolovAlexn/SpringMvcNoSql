@@ -42,7 +42,6 @@
   $(function($) {
     $('#studentForm').submit(function() {
       event.preventDefault();
-      alert("facultyNum:" + $('input[name=facultyNum]').val());
       var student = {
         "facultyNum" : $('input[name=facultyNum]').val(),
         "firstName" : $('input[name=firstName]').val(),
@@ -58,6 +57,7 @@
         dataType: 'json',
         data: JSON.stringify(student),
         success : function () {
+          // TODO: make some update on the page!
           alert('success');
         },
         error : function () {
