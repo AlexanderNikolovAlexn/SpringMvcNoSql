@@ -42,20 +42,14 @@
   $(function($) {
     $('#studentForm').submit(function() {
       event.preventDefault();
-      var student = {
-        "facultyNum" : $('input[name=facultyNum]').val(),
-        "firstName" : $('input[name=firstName]').val(),
-        "lastName" : $('input[name=lastName]').val(),
-        "email" : $('input[name=email]').val(),
-        "speciality" : $('input[name=speciality]').val(),
-      };
-      alert("form data is: " + JSON.stringify(student));
+      var data = {};
+      $(this).serializeArray().map(function(x){data[x.name] = x.value;});
       $.ajax({
         url: $(this).attr("action"),
         type: 'POST',
         contentType : 'application/json',
         dataType: 'json',
-        data: JSON.stringify(student),
+        data: JSON.stringify(data),
         success : function () {
           // TODO: make some update on the page!
           alert('success');
