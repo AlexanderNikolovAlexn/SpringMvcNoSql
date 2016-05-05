@@ -53,6 +53,7 @@
         success : function () {
           // TODO: make some update on the page!
           alert('success');
+          $('#studentForm')[0].reset();
         },
         error : function () {
           alert('error');
